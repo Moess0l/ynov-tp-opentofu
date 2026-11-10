@@ -1,0 +1,5 @@
+# Généré par : cd bootstrap && tofu output -raw backend_hcl > ../backend.hcl
+resource_group_name  = "rg-tfstate-nimbus-3"
+storage_account_name = "stnimbus3xxxx"
+container_name       = "tfstate"
+key                  = "nimbus.tfstate"
