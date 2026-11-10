@@ -20,3 +20,8 @@ output "ssh_web" {
     "vm-web-${k}" => "ssh -J ${var.admin_username}@${azurerm_public_ip.jumpbox.ip_address} ${var.admin_username}@${nic.private_ip_address}"
   }
 }
+
+output "key_vault_name" {
+  description = "Nom du Key Vault (suffixe aléatoire)."
+  value       = azurerm_key_vault.main.name
+}
