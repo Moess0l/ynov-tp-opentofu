@@ -52,3 +52,13 @@ variable "ssh_public_key_path" {
   type        = string
   description = "Chemin de la clé publique SSH déposée sur les VM."
 }
+
+variable "ip_ssh_autorisee" {
+  type        = string
+  description = "IP publique autorisée en SSH sur la jumpbox, au format CIDR (ex : 203.0.113.10/32)."
+
+  validation {
+    condition     = can(cidrhost(var.ip_ssh_autorisee, 0))
+    error_message = "Format CIDR attendu, par exemple 203.0.113.10/32."
+  }
+}
