@@ -62,11 +62,9 @@ variable "ip_ssh_autorisee" {
     error_message = "Format CIDR attendu, par exemple 203.0.113.10/32."
   }
 }
-<<<<<<< HEAD
 
 variable "email_alerte" {
   type        = string
   description = "Adresse qui reçoit les alertes CPU du groupe d'actions."
 }
-=======
->>>>>>> 300adbda19ff27f12105fa718d6213e415338a8c
+

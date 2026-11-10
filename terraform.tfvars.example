@@ -6,7 +6,4 @@ env                 = "tp"
 vm_size             = "Standard_B2ats_v2"
 ssh_public_key_path = "~/.ssh/nimbus.pub"
 ip_ssh_autorisee    = "203.0.113.10/32"
-<<<<<<< HEAD
 email_alerte        = "prenom.nom@ynov.com"
-=======
->>>>>>> 300adbda19ff27f12105fa718d6213e415338a8c
