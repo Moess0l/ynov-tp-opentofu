@@ -11,4 +11,7 @@ terraform {
       version = "~> 3.9"
     }
   }
+
+  # tofu init -backend-config=backend.hcl
+  backend "azurerm" {}
 }
