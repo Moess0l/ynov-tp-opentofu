@@ -12,11 +12,6 @@ variable "location" {
 variable "numero_groupe" {
   type        = number
   description = "Numéro du groupe (sert aussi d'identifiant de binôme) : noms des ressources et plan d'adressage 10.<groupe>.0.0/16."
-
-  validation {
-    condition     = var.numero_groupe >= 0 && var.numero_groupe <= 255
-    error_message = "Le numéro de groupe doit tenir dans un octet (0 à 255)."
-  }
 }
 
 variable "owner" {
@@ -56,11 +51,6 @@ variable "ssh_public_key_path" {
 variable "ip_ssh_autorisee" {
   type        = string
   description = "IP publique autorisée en SSH sur la jumpbox, au format CIDR (ex : 203.0.113.10/32)."
-
-  validation {
-    condition     = can(cidrhost(var.ip_ssh_autorisee, 0))
-    error_message = "Format CIDR attendu, par exemple 203.0.113.10/32."
-  }
 }
 
 variable "email_alerte" {
