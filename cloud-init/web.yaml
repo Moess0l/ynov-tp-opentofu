@@ -1,0 +1,39 @@
+#cloud-config
+package_update: true
+packages:
+  - nginx
+
+write_files:
+  # defer : après l'install de nginx, sinon dpkg bute sur un conffile modifié.
+  - path: /etc/nginx/sites-available/default
+    defer: true
+    content: |
+      server {
+          listen 80 default_server;
+          listen [::]:80 default_server;
+          root /var/www/html;
+          index index.html;
+
+          location = /sante {
+              default_type text/plain;
+              return 200 "OK-nimbus\n";
+          }
+
+          location / {
+              try_files $uri $uri/ =404;
+          }
+      }
+
+runcmd:
+  - |
+    cat > /var/www/html/index.html <<EOF
+    <!doctype html>
+    <html lang="fr">
+    <head><meta charset="utf-8"><title>NimbusShop</title></head>
+    <body>
+      <h1>NimbusShop</h1>
+      <p>Page servie par <strong>$(hostname)</strong></p>
+    </body>
+    </html>
+    EOF
+  - systemctl reload nginx
