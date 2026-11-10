@@ -1,0 +1,21 @@
+# State et cache OpenTofu
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+
+# Valeurs personnelles (copier les .example)
+*.tfvars
+!*.tfvars.example
+backend.hcl
+
+# Plans enregistrés
+*.tfplan
+tfplan
+
+# Fichiers de surcharge locaux
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
